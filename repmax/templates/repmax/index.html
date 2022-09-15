@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href={% static 'repmax/css/style.css' %}>
+
+<h1 class="ti">Checking Your One Rm(rep max)</h1>
+
+
+<div class="box">
+    <form action="cal">
+        Mesurement Method :
+        <select name="kind">
+            <option value="E">Epley</option>
+            <option value="B">Brzycki</option>
+        </select><br>
+        <div class='input'>
+            Reps(횟수) : <input type="text" name="R"><br>
+            weight(무게) : <input type="text" name="W"><br>
+        </div>
+        <div class='submit'><input type="submit"></div>
+    </form>
+</div>
+
+<div class="result">
+    {% if result %}
+        {% for per, value in result %}
+            <div class='per'>{{ per }}%</div><div class='value'>{{ value }}kg</div><br>
+            <br>
+            
+        {% endfor %}
+    {% endif %}
+</div>
